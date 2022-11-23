@@ -1,0 +1,169 @@
+var str = "hello"
+console.log(str.reverse())
+// error
+
+-----------------------------
+
+true+true+'1' 
+// "21"
+
+console.log(3+4+'5');
+// 75
+
+------------------------------
+
+true-false*1
+// 1
+
+------------------------------
+
+typeof typeof true
+// string
+
+------------------------------
+
+console.log(check(5))
+const check = (val) => {
+  return val + 5
+}
+// error
+
+-------------------------------
+
+console.log(check(5))
+function check (val) {
+  return val + 5
+}
+// 10
+
+--------------------------------
+
+function value() {
+  console.log(1);
+  setTimeout(() => {
+    console.log(2);
+  }, 0);
+  Promise.resolve(3).then((res) => console.log(res));
+  console.log(4);
+}
+value();
+// 1 4 3 2
+
+---------------------------------
+
+var obj = {
+   a: 10,
+   b: () => {
+      console.log(this.a)
+   }
+}
+obj.b()
+// undefined
+
+----------------------------------
+
+https://codesandbox.io/s/js-object-d7ef86
+
+//output of Sandbox
+function sum(obj) {
+  // write your code here
+  const {node, value} = obj;
+
+  if(node){
+		return value + sum(node)
+	}else{
+		return value;
+	}
+}
+
+----------------------------------
+
+//Adding reverse function on String Prototype
+String.prototype.reverse = function() { 
+	return this.split("").reverse().join("")
+}
+
+----------------------------------
+
+function fruit(){
+	console.log(name);
+	console.log(price);
+	
+	var name = "Mango";
+	let price = 20;
+}
+
+fruit(); 
+// undefined
+// Uncaught ReferenceError: cannot access 'price' before initialization
+
+-----------------------------------
+
+for(var i=0; i<3; i++){
+	setTimeout(() => console.log(i), 1);
+}
+
+for(let i=0; i<3; i++){
+	setTimeout(() => console.log(i),1);
+}
+
+// three times 3
+// 0
+   1
+   2
+   
+-------------------------------------
+
+console.log(+true);
+console.log(typeof +true);  
+// 1
+// number
+
+-------------------------------------
+
+let c = { name: "peter" }
+let d = c;
+c.name = "anil";
+console.log(d.name);
+
+// anil
+
+Above is only the reference of same object.
+For cloning the object, do the following:
+
+let e = {...c}
+
+or
+
+let f = Object.assign({}, c)
+
+--------------------------------------
+
+const obj = {a: "one", b: "two", a: "repeat"}
+console.log(obj)
+
+// {a: "repeat", b: "two" }
+
+--------------------------------------
+
+(() => {
+  let x=(y=10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+
+// undefined
+// number
+
+---------------------------------------
+
+console.log(true + +"10");
+
+// 11
+
+----------------------------------------
+
+('b' + 'a' + + 'a' + 'a').toLowerCase();
+
+// banana
