@@ -167,3 +167,9 @@ console.log(true + +"10");
 ('b' + 'a' + + 'a' + 'a').toLowerCase();
 
 // banana
+
+--------------------------------------
+
+JS Interview basic DSA Questions:
+
+https://www.thatjsdude.com/interview/js1.html
