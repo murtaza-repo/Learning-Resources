@@ -173,3 +173,9 @@ console.log(true + +"10");
 JS Interview basic DSA Questions:
 
 https://www.thatjsdude.com/interview/js1.html
+
+https://www.thatjsdude.com/interview/js2.html
+
+https://www.thatjsdude.com/interview/dom.html
+
+https://www.thatjsdude.com/interview/css.html
