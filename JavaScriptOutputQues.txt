@@ -179,3 +179,126 @@ https://www.thatjsdude.com/interview/js2.html
 https://www.thatjsdude.com/interview/dom.html
 
 https://www.thatjsdude.com/interview/css.html
+
+----------------------------------------------
+
+Interview Task:
+
+const awards = [
+  {
+    name: "James Peebles",
+    category: "Physics",
+    research: "Theoretical discoveries in physical cosmology",
+    year: 2019,
+  },
+  {
+    name: "Michel Mayor",
+    category: "Physics",
+    research: "Discovery of an exoplanet orbiting a solar-type star",
+    year: 2019,
+  },
+  {
+    name: "Didier Queloz",
+    category: "Physics",
+    research: "Discovery of an exoplanet orbiting a solar-type star",
+    year: 2019,
+  },
+  {
+    name: "John B. Goodenough",
+    category: "Chemistry",
+    research: "Development of lithium-ion batteries",
+    year: 2019,
+  },
+  {
+    name: "M. Stanley Whittingham",
+    category: "Chemistry",
+    research: "Development of lithium-ion batteries",
+    year: 2019,
+  },
+  {
+    name: "Akira Yoshino",
+    category: "Chemistry",
+    research: "Development of lithium-ion batteries",
+    year: 2019,
+  },
+  {
+    name: "Arthur Ashkin",
+    category: "Physics",
+    research: "Optical tweezers and their application to biological systems",
+    year: 2018,
+  },
+  {
+    name: "Gerard Mourou",
+    category: "Physics",
+    research: "Method of generating high-intensity, ultra-short optical pulses",
+    year: 2018,
+  },
+  {
+    name: "Donna Strickland",
+    category: "Physics",
+    research: "Method of generating high-intensity, ultra-short optical pulses",
+    year: 2018,
+  },
+  {
+    name: "Frances H. Arnold",
+    category: "Chemistry",
+    research: "Directed evolution of enzymes",
+    year: 2018,
+  },
+  {
+    name: "George P. Smith",
+    category: "Chemistry",
+    research: "Phage display of peptides and antibodies.",
+    year: 2018,
+  },
+  {
+    name: "Sir Gregory P. Winter",
+    category: "Chemistry",
+    research: "Phage display of peptides and antibodies.",
+    year: 2018,
+  },
+];
+
+let res = [];
+let newObj = {};
+
+awards.forEach((ele) => {
+  if (newObj["year"] === ele.year && newObj["category"] === ele.category) {
+    newObj.winners.push({ name: ele.name, share: ele.research });
+  } else {
+    newObj = {
+      year: ele.year,
+      category: ele.category,
+      winners: [{ name: ele.name, share: ele.research }],
+    };
+  }
+
+  if (!res.includes(newObj)) {
+    res.push(newObj);
+  }
+});
+
+res.map((obj) => {
+  let newObj = {};
+  for (let i of obj.winners) {
+    newObj[i.share] == undefined
+      ? (newObj[i.share] = 1)
+      : (newObj[i.share] += 1);
+  }
+  let rem = 1 / Object.keys(newObj).length;
+  // console.log(o, rem);
+  for (let i in newObj) {
+    newObj[i] = rem / newObj[i];
+  }
+  for (let i of obj.winners) {
+    i.share = +newObj[i.share].toFixed(2);
+  }
+
+  // return o;
+});
+
+//   return arr;
+
+// counter(res);
+console.log(res[0]);
+
