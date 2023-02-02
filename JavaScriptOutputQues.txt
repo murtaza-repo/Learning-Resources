@@ -179,3 +179,16 @@ https://www.thatjsdude.com/interview/js2.html
 https://www.thatjsdude.com/interview/dom.html
 
 https://www.thatjsdude.com/interview/css.html
+
+ const baseStr = "happy";
+    let frequency = {}, frequency_sum=0;
+
+    for(let i of Coupon_Code){
+        frequency[i] ? frequency[i]+=1 : frequency[i]=1
+    }
+
+    for(let j of baseStr){
+        frequency_sum+=frequency[j]
+    }
+
+    return Math.floor(frequency_sum/baseStr.length)
