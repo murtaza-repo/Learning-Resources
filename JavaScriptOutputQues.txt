@@ -180,15 +180,31 @@ https://www.thatjsdude.com/interview/dom.html
 
 https://www.thatjsdude.com/interview/css.html
 
- const baseStr = "happy";
-    let frequency = {}, frequency_sum=0;
+------------------------------------------------
+How many time the word happy can be formed using the given string:
 
-    for(let i of Coupon_Code){
-        frequency[i] ? frequency[i]+=1 : frequency[i]=1
+const inputStr = "hhhhaappyyy";
+console.log(checkHappy(inputStr))
+
+function checkHappy(string){
+  
+  const word = "happy";
+  let count = 0;
+  for (let i = 0; i <= string.length - word.length; i++) {
+    let formedWord = "";
+    for (let j = 0; j < word.length; j++) {
+      if (string.includes(word[j])) {
+        formedWord += word[j];
+        string = string.replace(word[j], "");
+     
+      } else {
+        break;
+      }
     }
-
-    for(let j of baseStr){
-        frequency_sum+=frequency[j]
+    if (formedWord === word) {
+      count++;
     }
+  }
+  return count;
 
-    return Math.floor(frequency_sum/baseStr.length)
+}
