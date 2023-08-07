@@ -76,6 +76,21 @@ function sum(obj) {
 	}
 }
 
+//method 2
+
+function sum(obj) {
+  let totalSum = 0;
+  let currentNode = obj;
+
+  while (currentNode) {
+    totalSum += currentNode.value || 0;
+    currentNode = currentNode.node;
+    
+  }
+
+  return totalSum;
+}
+
 ----------------------------------
 
 //Adding reverse function on String Prototype
