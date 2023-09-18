@@ -272,3 +272,19 @@ function flattenObject(oldObject) {
 }
 
 console.log(flattenObject(nestedObj))
+
+
+// Method 2
+
+const flattenObject = (input, keyName) => {
+var result = {};
+for (const key in input) {
+ const newKey =  keyName ? `${keyName}_${key}` : key;
+ if (typeof input[key] === "object" && !Array.isArray(input[key])) {
+       result = {...result, ...flattenObject(input[key], newKey)}
+ } else {
+       result[newKey] = input[key];
+ }
+}
+return result;
+};
